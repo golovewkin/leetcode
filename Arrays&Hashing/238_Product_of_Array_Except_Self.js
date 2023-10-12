@@ -18,8 +18,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-const productExceptSelf = function (nums) {
-  debugger;
+export const productExceptSelf = function (nums) {
   const res = [];
   let prefix = 1;
   for (let i = 0; i < nums.length; i++) {
@@ -35,5 +34,3 @@ const productExceptSelf = function (nums) {
 
   return res;
 };
-
-console.log(productExceptSelf([1, 2, 3, 4]));
