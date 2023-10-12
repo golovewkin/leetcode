@@ -19,19 +19,19 @@
  * @param {string[]} strs
  * @return {string[][]}
  */
-const groupAnagrams = function(strs) {
-    const map = new Map();
+export const groupAnagrams = function (strs) {
+  const map = new Map();
 
-    for(let i = 0; i < strs.length; i++){
-        const current = Array.from(strs[i]).sort().toString();
-        const anagrams = map.get(current);
-        if(anagrams){
-            anagrams.push(strs[i]);
-            map.set(current, anagrams);
-        } else {
-            map.set(current, [strs[i]]);
-        }
+  for (let i = 0; i < strs.length; i++) {
+    const current = Array.from(strs[i]).sort().toString();
+    const anagrams = map.get(current);
+    if (anagrams) {
+      anagrams.push(strs[i]);
+      map.set(current, anagrams);
+    } else {
+      map.set(current, [strs[i]]);
     }
+  }
 
-    return Array.from(map.values());
+  return Array.from(map.values());
 };
