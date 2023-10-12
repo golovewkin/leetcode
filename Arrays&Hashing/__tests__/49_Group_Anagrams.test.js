@@ -1,7 +1,7 @@
 import { describe, expect, test } from "@jest/globals";
 import { groupAnagrams } from "../49_Group_Anagrams";
 
-describe("twoSum should work properly", () => {
+describe("groupAnagrams should work properly", () => {
   test("checks the base case", () => {
     expect(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"])).toEqual([
       ["eat", "tea", "ate"],

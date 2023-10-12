@@ -23,17 +23,17 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-const containsDuplicate = function (nums) {
-    const duplicates = {};
-    for (const num of nums) {
-        if (duplicates[num]) {
-            return true;
-        } else {
-            duplicates[num] = true;
-        }
+export const containsDuplicate = function (nums) {
+  const duplicates = {};
+  for (const num of nums) {
+    if (duplicates[num]) {
+      return true;
+    } else {
+      duplicates[num] = true;
     }
+  }
 
-    return false;
+  return false;
 };
 
-console.log(containsDuplicate([1,2,3,4]));
+console.log(containsDuplicate([1, 2, 3, 4]));
