@@ -21,18 +21,18 @@
  * @return {number[]}
  */
 const productExceptSelf = function (nums) {
-  const prefixArr = [];
+  debugger;
+  const res = [];
+  let prefix = 1;
   for (let i = 0; i < nums.length; i++) {
-    const prefixValue = prefixArr[i - 1];
-    const prefix = prefixValue ?? 1;
-    prefixArr.push(prefix * nums[i]);
+    res[i] = prefix;
+    prefix = nums[i] * prefix;
   }
 
-  const res = [];
-  for (let j = prefixArr.length - 1; j > 0; j--) {
-    const prefixValue = prefixArr[j + 1];
-    const prefix = prefixValue ?? 1;
-    res.unshift(prefix * prefixArr[j + 1]);
+  let suffix = 1;
+  for (let j = nums.length - 1; j >= 0; j--) {
+    res[j] = suffix;
+    prefix = res[j] * suffix;
   }
 
   return res;
