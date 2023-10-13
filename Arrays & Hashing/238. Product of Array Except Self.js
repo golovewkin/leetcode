@@ -6,8 +6,6 @@
 //
 // You must write an algorithm that runs in O(n) time and without using the division operation.
 //
-//
-//
 // Example 1:
 // Input: nums = [1,2,3,4]
 // Output: [24,12,8,6]
@@ -31,8 +29,8 @@ const productExceptSelf = function (nums) {
 
   let suffix = 1;
   for (let j = nums.length - 1; j >= 0; j--) {
-    res[j] = suffix;
-    prefix = res[j] * suffix;
+    res[j] = res[j] * suffix;
+    suffix = nums[j] * suffix;
   }
 
   return res;
