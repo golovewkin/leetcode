@@ -9,3 +9,4 @@ src/**/*.css
 src/**/*.css.map
 src/**/*.scssc
 coverage/
+*.xml
