@@ -22,17 +22,17 @@
  * @param {number} target
  * @return {number[]}
  */
-const twoSum = function(nums, target) {
-    const map = new Map();
-    for(let i = 0; i <= nums.length; i++){
-        const current = nums[i];
-        const aimValue = target - current;
-        const aim = map.get(aimValue);
+export const two_Sum = function (nums, target) {
+  const map = new Map();
+  for (let i = 0; i <= nums.length; i++) {
+    const current = nums[i];
+    const aimValue = target - current;
+    const aim = map.get(aimValue);
 
-        if(aim >= 0){
-            return [i, aim];
-        } else {
-            map.set(current, i);
-        }
+    if (aim >= 0) {
+      return [i, aim];
+    } else {
+      map.set(current, i);
     }
+  }
 };
