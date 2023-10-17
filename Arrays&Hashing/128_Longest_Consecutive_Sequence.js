@@ -17,4 +17,9 @@
  * @param {number[]} nums
  * @return {number}
  */
-export const longestConsecutive = function (nums) {};
+export const longestConsecutive = function (nums) {
+  const set = new Set(nums);
+  for (let i = 0; i < nums.length; i++) {
+    const current = nums[i];
+  }
+};
