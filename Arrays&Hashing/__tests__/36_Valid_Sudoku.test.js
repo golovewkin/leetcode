@@ -29,6 +29,6 @@ describe("isValidSudoku should work properly", () => {
       [".", ".", ".", "4", "1", "9", ".", ".", "5"],
       [".", ".", ".", ".", "8", ".", ".", "7", "9"],
     ];
-    expect(isValidSudoku(board)).toEqual(false);
+    expect(isValidSudoku(board)).toBeFalsy();
   });
 });
