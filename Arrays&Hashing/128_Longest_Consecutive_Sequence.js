@@ -19,19 +19,17 @@
  */
 export const longestConsecutive = function (nums) {
   const set = new Set(nums);
-  const longests = [];
+  let longest = 0;
 
-  for (let i = 0; i < nums.length; i++) {
-    const current = nums[i];
-    if (set.has(current - 1)) {
-      let length = 1;
-      while (set.has(current - length)) {
+  for (let item of nums) {
+    let length = 1;
+    if (!set.has(item - 1)) {
+      while (set.has(item + length)) {
         length += 1;
       }
-      longests.push(length);
-      length = 0;
+      longest = Math.max(longest, length);
     }
   }
 
-  return Math.max(...longests);
+  return longest;
 };
