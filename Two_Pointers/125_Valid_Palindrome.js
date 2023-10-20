@@ -31,4 +31,15 @@ export const isPalindrome = function (s) {
   }
 
   const cleanString = s.toLowerCase().replaceAll(/[^a-zA-Z0-9]/gi, "");
+  let rightPointer = 0;
+  let leftPointer = cleanString.length - 1;
+
+  while (rightPointer < leftPointer) {
+    if (cleanString[rightPointer] !== cleanString[leftPointer]) {
+      return false;
+    }
+    rightPointer++;
+    leftPointer--;
+  }
+  return true;
 };
