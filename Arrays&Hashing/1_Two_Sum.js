@@ -17,6 +17,9 @@
 // Input: nums = [3,3], target = 6
 // Output: [0,1]
 
+// NOTE: Our solution O(n). CAN be a binary search here as the best solution with logN. better with memory
+// Also can be solved with 2 Pointers if array is sorted (O(n), memory (O(1)))
+
 /**
  * @param {number[]} nums
  * @param {number} target
