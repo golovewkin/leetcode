@@ -10,7 +10,11 @@ describe("twoSum2 should work properly", () => {
     expect(twoSum2([2, 3, 4], 6)).toStrictEqual([1, 3]);
   });
 
-  test("checks with the empty string", () => {
+  test("checks the third case", () => {
     expect(twoSum2([-1, 0], -1)).toStrictEqual([1, 2]);
+  });
+
+  test("checks the 4th case", () => {
+    expect(twoSum2([5, 25, 75], 100)).toStrictEqual([2, 3]);
   });
 });
