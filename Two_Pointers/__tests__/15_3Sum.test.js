@@ -13,7 +13,11 @@ describe("threeSum should work properly", () => {
     expect(threeSum([0, 1, 1])).toStrictEqual([]);
   });
 
-  test("checks the third case with null in array", () => {
+  test("checks the third case with nulls in array", () => {
     expect(threeSum([0, 0, 0])).toStrictEqual([[0, 0, 0]]);
+  });
+
+  test("checks the fourth case with nulls in array", () => {
+    expect(threeSum([0, 0, 0, 0])).toStrictEqual([[0, 0, 0]]);
   });
 });

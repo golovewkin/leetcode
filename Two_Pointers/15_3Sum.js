@@ -31,19 +31,18 @@
 export const threeSum = function (nums) {
   nums.sort();
   const res = [];
-  for (let i = 0; i < nums.length; i++) {
+  for (let i = 0; i < nums.length - 2; i++) {
     const current = nums[i];
+    if (i > 0 && current === nums[i - 1]) {
+      continue;
+    }
     let left = i + 1;
-    let right = nums.length - i - 1;
+    let right = nums.length - 1;
     while (left < right) {
       const sum = current + nums[left] + nums[right];
-      // todo fix nums[i - 1] === undefined
-      if (i > 0 && current === nums[i - 1]) {
-        continue;
-      }
 
       if (sum === 0) {
-        res.push(current, nums[left], nums[right]);
+        res.push([current, nums[left], nums[right]]);
         left++;
       } else if (sum > 0) {
         right--;
