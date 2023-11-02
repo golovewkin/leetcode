@@ -29,21 +29,24 @@
  * @return {number[][]}
  */
 export const threeSum = function (nums) {
-  nums.sort();
+  const numbers = nums.sort((a, b) => a - b);
   const res = [];
-  for (let i = 0; i < nums.length - 2; i++) {
-    const current = nums[i];
-    if (i > 0 && current === nums[i - 1]) {
+  for (let i = 0; i < numbers.length - 2; i++) {
+    const current = numbers[i];
+    if (i > 0 && current === numbers[i - 1]) {
       continue;
     }
     let left = i + 1;
-    let right = nums.length - 1;
+    let right = numbers.length - 1;
     while (left < right) {
-      const sum = current + nums[left] + nums[right];
+      const sum = current + numbers[left] + numbers[right];
 
       if (sum === 0) {
-        res.push([current, nums[left], nums[right]]);
+        res.push([current, numbers[left], numbers[right]]);
         left++;
+        while (numbers[left] === numbers[left - 1] && left < right) {
+          left++;
+        }
       } else if (sum > 0) {
         right--;
       } else {
