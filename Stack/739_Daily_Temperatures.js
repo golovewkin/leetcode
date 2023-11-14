@@ -1,7 +1,8 @@
 // 739. Daily Temperatures
 // Medium
 // Given an array of integers temperatures represents the daily temperatures,
-// return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible
+// return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature.
+// If there is no future day for which this is possible
 // keep answer[i] == 0 instead.
 //
 // Example 1:
@@ -16,8 +17,26 @@
 // Input: temperatures = [30,60,90]
 // Output: [1,1,0]
 
+const getStackTop = function (stack) {
+  return stack[stack.length - 1];
+};
+
 /**
  * @param {number[]} temperatures
  * @return {number[]}
  */
-export const dailyTemperatures = function (temperatures) {};
+export const dailyTemperatures = function (temperatures) {
+  const res = new Array(temperatures.length).fill(0);
+  const stack = [];
+
+  for (let i = 0; i < temperatures.length; i++) {
+    while (temperatures[getStackTop(stack)] < temperatures[i]) {
+      const index = stack.pop();
+      res[index] = i - index;
+    }
+
+    stack.push(i);
+  }
+
+  return res;
+};
