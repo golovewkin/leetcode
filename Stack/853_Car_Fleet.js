@@ -34,4 +34,23 @@
  * @param {number[]} speed
  * @return {number}
  */
-export const carFleet = function (target, position, speed) {};
+export const carFleet = function (target, position, speed) {
+  const pairsArr = position.map((pos, i) => [pos, speed[i]]);
+  const stack = [];
+  pairsArr.sort((posA, posB) => posA[0] - posB[0]);
+  //for loop reversed
+  for (let i = pairsArr.length - 1; i >= 0; i--) {
+    //calculate time and add it to stack
+    const [pos, speed] = pairsArr[i];
+    stack.push((target - pos) / speed);
+
+    if (
+      stack.length >= 2 &&
+      stack[stack.length - 1] <= stack[stack.length - 2]
+    ) {
+      stack.pop();
+    }
+  }
+  // at the end of the loop return the length of the stack
+  return stack.length;
+};
