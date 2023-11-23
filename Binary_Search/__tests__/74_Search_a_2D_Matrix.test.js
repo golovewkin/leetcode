@@ -1,7 +1,7 @@
 import { describe, expect, test } from "@jest/globals";
 import { searchMatrix } from "../74_Search_a_2D_Matrix";
 
-describe("MinStack should work properly", () => {
+describe("searchMatrix should work properly", () => {
   test("checks the base case", () => {
     expect(
       searchMatrix(

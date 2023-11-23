@@ -15,27 +15,23 @@
  * @return {boolean}
  */
 export const searchMatrix = function (matrix, target) {
-  const rowsLength = matrix.length;
-  const colsLength = matrix[0].length - 1;
+  const rowsLength = matrix.length - 1;
   let top = 0;
-  let bottom = colsLength;
+  let bottom = rowsLength;
 
-  let rowWeNeed = rowsLength === 1 ? 0 : undefined;
-  while (top <= bottom && rowsLength === undefined) {
+  let rowWeNeed;
+  while (top <= bottom) {
     const row = Math.floor((bottom + top) / 2);
-    const current = matrix[row] && matrix[row][0];
-    if (current === target) {
-      return true;
-    }
+    const firstEl = matrix[row] && matrix[row][0];
+    const lastEl = matrix[row] && matrix[row][matrix[row].length - 1];
 
-    const nextRowValue = matrix[row + 1] && matrix[row + 1][0];
-    if (current < target && nextRowValue > target) {
-      rowWeNeed = row;
-      break;
-    } else if (current > target) {
+    if (lastEl < target) {
+      top = row + 1;
+    } else if (firstEl > target) {
       bottom = row - 1;
     } else {
-      top = row + 1;
+      rowWeNeed = row;
+      break;
     }
   }
 
@@ -44,7 +40,7 @@ export const searchMatrix = function (matrix, target) {
   }
 
   let left = 0;
-  let right = matrix.length - 1;
+  let right = matrix[0].length - 1;
   const currentRow = matrix[rowWeNeed];
   while (left <= right) {
     const middle = Math.floor((left + right) / 2);
@@ -55,8 +51,7 @@ export const searchMatrix = function (matrix, target) {
 
     if (current > target) {
       right = middle - 1;
-    }
-    if (current < target) {
+    } else if (current < target) {
       left = middle + 1;
     }
   }
